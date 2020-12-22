@@ -16,3 +16,11 @@ jobs:
           hour: '24'
       - name: output
         run: echo '${{ steps.list.outputs.pulls }}'
+      - name: Get pull requests 2
+        uses: buildsville/list-pull-requests@v1
+        id: list2
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          hour: '24'
+      - name: output
+        run: echo '${{ steps.list2.outputs.pulls }}'
