@@ -22,3 +22,4 @@ jobs:
           hour: '24'
       - name: output
         run: echo '${{ steps.list2.outputs.pulls }}'
+
