@@ -1,0 +1,18 @@
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/2 * * * *'
+
+jobs:
+  update_pull_requests:
+    runs-on: ubuntu-latest
+    name: Update pull requests
+    steps:
+      - name: Get pull requests
+        uses: bjthompson805/list-pull-requests@v1
+        id: list
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          hour: '24'
+      - name: output
+        run: echo '${{ steps.list.outputs.pulls }}'
