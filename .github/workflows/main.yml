@@ -9,6 +9,7 @@ jobs:
         uses: bjthompson805/list-pull-requests@v1
         id: list
         with:
+          branch: main
           token: ${{secrets.GITHUB_TOKEN}}
           hour: '24'
       - name: output
