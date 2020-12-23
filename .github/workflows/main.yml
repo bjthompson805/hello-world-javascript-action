@@ -6,7 +6,7 @@ jobs:
     name: Update pull requests
     steps:
       - name: Get pull requests
-        uses: bjthompson805/list-pull-requests@v1.5
+        uses: bjthompson805/list-pull-requests@v1.6
         id: list
         with:
           token: ${{secrets.GITHUB_TOKEN}}
