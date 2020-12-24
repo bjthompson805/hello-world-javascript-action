@@ -6,9 +6,10 @@ jobs:
     name: Update pull requests
     steps:
       - name: Get pull requests
-        uses: bjthompson805/list-pull-requests@v1.7
+        uses: bjthompson805/list-pull-requests@v1.8
         id: list
         with:
           token: ${{secrets.GITHUB_TOKEN}}
+          skip_hour: 24
       - name: output
         run: echo '${{ steps.list.outputs.pulls }}'
