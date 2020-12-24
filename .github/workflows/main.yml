@@ -10,6 +10,5 @@ jobs:
         id: list
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          skip_hour: 24
       - name: output
         run: echo '${{ steps.list.outputs.pulls }}'
