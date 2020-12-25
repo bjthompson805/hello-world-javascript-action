@@ -12,3 +12,9 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
       - name: output
         run: echo '${{ steps.list.outputs.pulls }}'
+      - name: Make pull request comments
+        uses: bjthompson805/make-pr-comments@v1
+        id: comments
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          pull_requests: ${{steps.list.outputs.pulls}}
