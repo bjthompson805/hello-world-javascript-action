@@ -1,20 +1,16 @@
 on: [push]
 
 jobs:
-  update_pull_requests:
+  unassign_issues:
     runs-on: ubuntu-latest
-    name: Update pull requests
+    name: Unassign issues
     steps:
-      - name: Get pull requests
-        uses: bjthompson805/list-pull-requests@v1
-        id: list
+      - name: Unassign issues
+        uses: bjthompson805/unassign-issues@v1
+        id: unassign-issues
         with:
           token: ${{secrets.GITHUB_TOKEN}}
+          unassign_inactive_in_hours: 168 # 7 days
+          warning_inactive_in_hours: 120 # 5 days
       - name: output
-        run: echo '${{ steps.list.outputs.pulls }}'
-      - name: Make pull request comments
-        uses: bjthompson805/make-pr-comments@v1
-        id: comments
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          pull_requests: ${{steps.list.outputs.pulls}}
+        run: echo '${{ steps.list.outputs.issuesUpdated }}'
