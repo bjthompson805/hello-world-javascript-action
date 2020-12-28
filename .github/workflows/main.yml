@@ -10,5 +10,5 @@ jobs:
         id: unassign-issues
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          unassign_inactive_in_hours: 0 # 7 days
+          unassign_inactive_in_hours: 168 # 7 days
           warning_inactive_in_hours: 0 # 5 days
