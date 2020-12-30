@@ -10,5 +10,5 @@ jobs:
         id: add-label-to-cards
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          label_to_add: 'help wanted',
+          label_to_add: 'help wanted'
           column_id: '12277234'
