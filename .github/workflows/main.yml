@@ -1,14 +1,14 @@
 on: [push]
 
 jobs:
-  remove_label_from_cards:
+  unassign_issues:
     runs-on: ubuntu-latest
-    name: Remove label from cards
+    name: Unassign issues
     steps:
-      - name: Remove label from cards
-        uses: bjthompson805/remove-label-from-cards@v1
-        id: remove-label-from-cards
+      - name: Unassign issues
+        uses: bjthompson805/unassign-issues@v1
+        id: unassign-issues
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          label_to_remove: 'help wanted'
-          column_id: '12277234'
+          unassign_inactive_in_hours: 0 # 7 days
+          warning_inactive_in_hours: 120 # 5 days
