@@ -13,9 +13,9 @@ jobs:
           unassign_inactive_in_hours: 0 # 7 days
           warning_inactive_in_hours: 120 # 5 days
       - name: Print the unassigned issues
-        run: echo "Unassigned issues: ${{steps.unassign-issues.outputs.unassigned_issues}}"
+        run: echo "Unassigned issues = ${{steps.unassign-issues.outputs.unassigned_issues}}"
       - name: Print the warned issues
-        run: echo "Warned issues: ${{steps.unassign-issues.outputs.warned_issues}}"
+        run: echo "Warned issues = ${{steps.unassign-issues.outputs.warned_issues}}"
       - name: Move unassigned issues from In Progress to To Do
         uses: bjthompson805/move-issues@v1
         id: move-issues
@@ -25,4 +25,4 @@ jobs:
           from_column: '12277235'
           to_column: '12277234'
       - name: Print moved issues
-        run: echo "Moved issues: ${{steps.move-issues.outputs.moved_issues}}"
+        run: echo "Moved issues = ${{steps.move-issues.outputs.moved_issues}}"
