@@ -21,7 +21,7 @@ jobs:
         id: move_issues
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          issues: ${{steps.unassign_issues.outputs.unassigned_issues}}
+          issues: 6,5 #${{steps.unassign_issues.outputs.unassigned_issues}}
           from_column: '12277235'
           to_column: '12277234'
       - name: Print moved issues
